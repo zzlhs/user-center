@@ -27,7 +27,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserPo> implements Use
         UserPo userPo = getOne(new QueryWrapper<UserPo>().lambda()
                 .eq(UserPo::getName, name));
         if(Objects.isNull(userPo)){
-            return SaResult.error( "不存在此用户，请先注册！");
+//            return SaResult.error( "不存在此用户，请先注册！");
+            return register(name);
         }else{
             if(userPo.getPwd().equals(pwd)){
                 return SaResult.ok( "登录成功！");
