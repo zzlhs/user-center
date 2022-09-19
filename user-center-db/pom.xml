@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.free.user</groupId>
+            <artifactId>user-center-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <artifactId>free-base</artifactId>
             <groupId>org.example</groupId>
         </dependency>
@@ -59,12 +64,12 @@
             <optional>true</optional>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--            <type>pom</type>-->
-<!--            <scope>import</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+        <!--            <type>pom</type>-->
+        <!--            <scope>import</scope>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -88,11 +93,6 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.free.user</groupId>
-            <artifactId>user-center-api</artifactId>
-            <scope>compile</scope>
-        </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
