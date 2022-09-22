@@ -1,10 +1,12 @@
 package com.free.user.db.UserService.impl;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.free.base.entity.RequestDomain;
 import com.free.base.util.UserHolder;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import com.free.user.db.UserService.UserService;
 import com.free.user.db.dao.UserDao;
@@ -28,10 +30,20 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserPo> implements Use
 //            return SaResult.error( "不存在此用户，请先注册！");
             return register(name);
         }else{
-            if(userPo.getPwd().equals(pwd)){
-                return SaResult.ok( "登录成功！");
+            if(StringUtils.isBlank(userPo.getPwd())){
+                if(DEFAULT_PWD.equals(pwd)){
+                    StpUtil.login(userPo.getId());
+                    return SaResult.ok( "登录成功！");
+                }else{
+                    return SaResult.error( "登录失败,密码错误！");
+                }
             }else{
-                return SaResult.error( "登录失败,密码错误！");
+                if(userPo.getPwd().equals(pwd)){
+                    StpUtil.login(userPo.getId());
+                    return SaResult.ok( "登录成功！");
+                }else{
+                    return SaResult.error( "登录失败,密码错误！");
+                }
             }
         }
     }

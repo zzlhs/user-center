@@ -6,7 +6,7 @@ import lombok.Data;
 
 
 @Data
-@TableName("com/free/user")
+@TableName("user")
 public class UserPo extends BasePo {
 
     private String headerUrl;
